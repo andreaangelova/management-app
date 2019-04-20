@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
+import { CustomerTableComponent } from './customer-table/customer-table.component';
 
 @NgModule({
-  declarations: [CustomerComponent],
+  declarations: [CustomerComponent, CustomerTableComponent],
   imports: [
     CommonModule,
     CustomerRoutingModule
