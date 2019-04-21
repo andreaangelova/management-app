@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {ProductModel} from '../product-data/Product.model';
+import {Store} from '@ngrx/store';
+import {AppStore} from '../../../core/AppSotre.model';
 
 @Component({
   selector: 'app-product-grid',
@@ -7,17 +10,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ProductGridComponent implements OnInit {
 
-  products = [
-    {id: '3423', name: 'Samsung', price: 743.99},
-    {id: '1396', name: 'Apple', price: 1000},
-    {id: '1396', name: 'Huawei', price: 672.234},
-    {id: '1396', name: 'Nokia', price: 10},
-    {id: '1678', name: 'Sony', price: 456.755555},
-    {id: '1678', name: 'LG', price: 322},
-    {id: '1678', name: 'Motorola', price: 456.345}
-  ];
+  products: ProductModel[];
 
-  constructor() { }
+  constructor(private store: Store<AppStore>) {
+    this.store.select(res => res.products).subscribe(res => this.products = res.products);
+  }
 
   ngOnInit() {
   }

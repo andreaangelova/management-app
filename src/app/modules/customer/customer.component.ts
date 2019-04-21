@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AppStore} from '../../core/AppSotre.model';
+import {Store} from '@ngrx/store';
+import {CustomerModel} from './customer-data/Customer.model';
+import {LoadCustomers} from './customer-data/customer.action';
 
 @Component({
   selector: 'app-customer',
@@ -7,20 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
-  customers = [
-    {id: '3423', name: 'Tailor', email: 'tailor@yahoo.com',
-      products: [{name: 'Samsung'}, {name: 'Apple'}]},
-    {id: '1396', name: 'Simon', email: 'simon@hotmail.com',
-    products: [{name: 'Huawei'}, {name: 'Samsung'}, {name: 'Nokia'}]},
-    {id: '1678', name: 'Filip', email: 'tailor@gmail.com',
-      products: [{name:  'Sony'}, {name: 'Apple'}, {name: 'LG'}, {name: 'Motorola'}]},
-    {id: '4529', name: 'Katerine', email: 'tailor@yahoo.com',
-    products: []}
-  ];
+  customers: CustomerModel[];
 
-  constructor() { }
+  constructor(private store: Store<AppStore>) { }
 
   ngOnInit() {
+    this.store.select(res => res.customers).subscribe(res => {
+      if (res.customers && !res.loading) { // if there aren't any customers in the store, load them
+        this.customers = res.customers;
+      } else if (!res.loading) {
+        this.store.dispatch(new LoadCustomers());
+      } else {
+        // TODO: add spinner here
+      }
+    });
   }
 
 }
