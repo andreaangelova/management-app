@@ -5,6 +5,7 @@ import {StoreModule} from '@ngrx/store';
 import {reducers, effects} from './index';
 import {EffectsModule} from '@ngrx/effects';
 import {CustomerSerivce} from '../modules/customer/customer-data/customer.service';
+import {ProductSerivce} from '../modules/product/product-data/product.service';
 
 @NgModule({
   declarations: [MenuComponent],
@@ -13,7 +14,7 @@ import {CustomerSerivce} from '../modules/customer/customer-data/customer.servic
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects)
   ],
-  providers: [CustomerSerivce],
+  providers: [CustomerSerivce, ProductSerivce],
   exports: [MenuComponent]
 })
 export class CoreModule { }
