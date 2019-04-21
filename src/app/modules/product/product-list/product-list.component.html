@@ -1,0 +1,16 @@
+<table class="table table-bordered table-hover">
+  <thead>
+  <tr class="bg-primary text-white">
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td>{{product.price.toFixed(2)}} $</td>
+    <td><button class="btn btn-outline-primary btn-block">Delete</button></td>
+  </tr>
+  </tbody>
+</table>

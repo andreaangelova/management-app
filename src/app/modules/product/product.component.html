@@ -1,3 +1,12 @@
-<p>
-  product works!
-</p>
+<div class="container text-muted">
+  <br/>
+  <div class="flex row justify-content-md-center">
+    <h3>Products</h3>
+    <nav>
+      <a class="btn" [routerLink]="['list']" routerLinkActive="btn-outline-primary">List View</a>
+      <a class="btn" [routerLink]="['grid']" routerLinkActive="btn-outline-primary">Grid View</a>
+    </nav>
+  </div>
+  <br/>
+  <router-outlet></router-outlet>
+</div>
