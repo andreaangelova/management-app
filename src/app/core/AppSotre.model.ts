@@ -1,5 +1,5 @@
-import {ProductState} from '../modules/product/product-data/product.reducer';
-import {CustomerState} from '../modules/customer/customer-data/customer.reducer';
+import {ProductState} from '../features/product/product-data/product.reducer';
+import {CustomerState} from '../features/customer/customer-data/customer.reducer';
 
 export interface AppStore {
   products: ProductState;

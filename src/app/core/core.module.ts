@@ -4,8 +4,8 @@ import { MenuComponent } from './menu/menu.component';
 import {StoreModule} from '@ngrx/store';
 import {reducers, effects} from './index';
 import {EffectsModule} from '@ngrx/effects';
-import {CustomerSerivce} from '../modules/customer/customer-data/customer.service';
-import {ProductSerivce} from '../modules/product/product-data/product.service';
+import {CustomerSerivce} from '../features/customer/customer-data/customer.service';
+import {ProductSerivce} from '../features/product/product-data/product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
