@@ -1,0 +1,11 @@
+<div class="dialog-wrapper text-muted">
+  <h3>{{data.header}}</h3>
+  <hr>
+  <p>{{data.body}}</p>
+  <div class="row">
+    <div class="col-6" *ngFor="let button of data.buttons">
+      <button class="btn btn-primary btn-block"
+              (click)="dialogRef.close(button.value)">{{button.name}}</button>
+    </div>
+  </div>
+</div>

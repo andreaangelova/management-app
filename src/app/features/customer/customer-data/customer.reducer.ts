@@ -6,6 +6,7 @@ const initialState: CustomerState = {};
 export interface CustomerState {
   loading?: boolean;
   customers?: CustomerModel[];
+  showSuccess?: boolean;
 }
 
 export function CustomerReducer(state = initialState, action: All): CustomerState {
@@ -17,7 +18,9 @@ export function CustomerReducer(state = initialState, action: All): CustomerStat
     case CustomerActionTypes.ADD_CUSTOMER:
         action.payload['id'] = Math.floor(1000 + Math.random() * 9000); // generating random it
         // TODO: check if the generated id already exists in another customer
-      return {customers: [action.payload, ...state.customers], loading: false};
+      return {customers: [action.payload, ...state.customers], showSuccess: true, loading: false};
+    case CustomerActionTypes.REMOVE_SUCCESS_MESSAGE:
+      return {...state, showSuccess: false};
     default :
       return state;
   }

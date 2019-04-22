@@ -20,8 +20,9 @@ export class CustomerEffects {
     )
   );
 
-  @Effect({dispatch: false})
+  @Effect()
   AddCustomer: Observable<Action> = this.actions$.pipe(
-    ofType(CustomerAction.CustomerActionTypes.ADD_CUSTOMER)
+    ofType(CustomerAction.CustomerActionTypes.ADD_CUSTOMER),
+    mergeMap(() => Observable.of(new CustomerAction.RemoveSuccessMessage())) // after showing the success message, remove it
   );
 }
