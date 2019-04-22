@@ -14,9 +14,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.store.select(res => res.products).subscribe(res => {
-      if (res.loading) {
-        // TODO: add spinner here
-      } else if (!res.products) {
+      if (!res.products && !res.loading) {
         this.store.dispatch(new LoadProducts());
       }
     });

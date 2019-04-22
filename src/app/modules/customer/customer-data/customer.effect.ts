@@ -19,4 +19,9 @@ export class CustomerEffects {
       )
     )
   );
+
+  @Effect({dispatch: false})
+  AddCustomer: Observable<Action> = this.actions$.pipe(
+    ofType(CustomerAction.CustomerActionTypes.ADD_CUSTOMER)
+  );
 }

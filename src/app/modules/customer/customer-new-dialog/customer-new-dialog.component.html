@@ -1,0 +1,21 @@
+<div class="text-muted">
+  <h3>Add new Customer</h3>
+  <hr>
+  <form class="form-group" [formGroup]="customerForm">
+    <div class="form-group">
+      <div class="description">
+        <label>Name</label>
+        <em class="text-danger" *ngIf="customerForm.controls.name.invalid && customerForm.controls.name.touched">Please enter name</em>
+      </div>
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+    <div class="form-group">
+      <div class="description">
+        <label>Email</label>
+        <em class="text-danger" *ngIf="customerForm.controls.email.invalid && customerForm.controls.email.touched">Please enter a valid email</em>
+      </div>
+      <input type="email" class="form-control" formControlName="email">
+    </div>
+  </form>
+  <button class="btn btn-primary btn-block" (click)="validateData()">Add Customer</button>
+</div>
